@@ -66,13 +66,10 @@ class simulate:
 			for d in self._drivers:
 				currentStops[d.currentStop()].append(d)
 				
-			
 			for stop, drivers in currentStops.items():
 				for listeningDriver in drivers:
 					otherDrivers = [d for d in drivers if d is not listeningDriver]
-					
 					for o in otherDrivers:
-
 						missingGossips = [g for g in o.tellGossip() if g not in listeningDriver.tellGossip()]
 						listeningDriver.listenToGossip(missingGossips)		
 
@@ -80,8 +77,9 @@ class simulate:
 				d.move()
 
 				
-			if all(set(d.tellGossip()) == set(all_gossip) for d in self._drivers):
-			 	print(counter)
+			if all(set(d.tellGossip()) == set(all_gossip) for d in self._drivers) and not self._allGossipsTransferred:
+			 	self._allGossipsTransferred = True
+			 	self._allGossipsTransferredTime = counter
 
 	
 	def simulationStatus(self):
@@ -91,3 +89,12 @@ class simulate:
 
 ExampleInput1 = simulate("ExampleInput1.txt")
 print(ExampleInput1.simulationStatus())
+
+ExampleInput2 = simulate("ExampleInput2.txt")
+print(ExampleInput2.simulationStatus())
+
+ChallengeInput1 = simulate("ChallengeInput1.txt")
+print(ChallengeInput1.simulationStatus())
+
+ChallengeInput2 = simulate("ChallengeInput2.txt")
+print(ChallengeInput2.simulationStatus())

@@ -1,6 +1,6 @@
 Bus drivers like to gossip, everyone knows that. And bus drivers can gossip when they 
 end up at the same stop. So now we are going to calculate after how many stops
- all the bus drivers know all the gossips.
+all the bus drivers know all the gossips.
 
 You will be given a number of busroutes that the drivers follow. Each route is appointed to 1 driver. 
 When 2 or more drivers are at the same stop (even if it is the start), 
@@ -13,3 +13,7 @@ If a driver starts and stops at the same stop then that is also repeated. (e.g. 
 All drivers take 1 minute to go from one stop to another and the gossip exchange happens instantly.
 
 All drivers drive 8 hours a day so you have a maximum of 480 minutes to get all the gossiping around.
+
+BONUS:
+Gossiping bus drivers lose one minute to tell each other the gossip. 
+If they have nothing new to say, they don't wait that minute.
