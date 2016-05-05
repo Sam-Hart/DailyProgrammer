@@ -1,5 +1,6 @@
 class Triangle():
 	def __init__(self, vertices):
+		
 		self.__vertices = list(zip(*[iter(vertices)]*2))
 	
 	def calcSide(self, vert1, vert2):
@@ -13,9 +14,11 @@ class Triangle():
 		return [self.calcSide(vert1, vert2), self.calcSide(vert1, vert3), self.calcSide(vert2, vert3)]
 		
 	def getArea(self):
+		#Need to know side lengths in order to use heron's formula
 		sides = self.getSideLengths()
 		semPerim = (sides[0] + sides[1] + sides[2]) / 2
 
+		#Using heron's formula to calculate triangle area
 		return (semPerim*(semPerim - sides[0])*(semPerim - sides[1])*(semPerim - sides[2]))**.5
 
 
